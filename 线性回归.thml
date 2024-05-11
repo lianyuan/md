@@ -1,0 +1,14 @@
+<h2>线性回归</h2>
+<p><font face='黑体' color=#ff0000 size=4>在Python中，可以使用statsmodels库来实现线性回归。以下是一个简单的例子：</font></p>
+<p><code>import statsmodels.api as sm</code><br />
+<code>import numpy as np</code></p>
+<p># 创建一些示例数据<br />
+<code>np.random.seed(10)</code><br />
+<code>X = np.random.rand(100, 1)  # 特征数据，这里是100个样本和1个特征的矩阵</code><br />
+<code>y = 1.5 + 2 * X.ravel() + np.random.randn(100) * 0.5  # 目标变量，线性关系加上一些噪声</code></p>
+<p># 添加一个常数列作为截距(intercept)<br />
+<code>X = sm.add_constant(X)</code></p>
+<p># 创建一个OLS模型并拟合它<br />
+<code>model = sm.OLS(y, X).fit()</code></p>
+<p># 输出模型结果<br />
+<code>print(model.summary())</code></p>
